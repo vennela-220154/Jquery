@@ -1,0 +1,68 @@
+<html>
+<head>
+<title> Animations </title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+    #box {
+      width: 100px;
+      position: relative;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+    <img id="box" src="bulldog flying on the rocket.gif" width="500px" height="200px">
+
+    <br><br>
+    
+    <button id="start">Start Animation</button>
+    <button id="stop">Stop</button>
+    <button id="finish">Finish</button>
+    <button id="clear">Clear Queue</button>
+    <button id="dequeue">Dequeue</button>
+    <script>
+        $(document).ready(function(){
+        
+          $("#start").click(function(){
+        
+            $("#box")
+              .animate({ left: "500px" }, 1000)   // Step 1
+              .delay(1000)                         // Delay
+              .animate({ top: "400px" }, 1000)    // Step 2
+              
+              .queue(function(next){              // Custom Queue
+                alert("Step Completed!");
+                next();                           // Continue next animation
+              })
+        
+              .animate({ opacity: 0.3 }, 1000);  // Step 3
+        
+          });
+        
+          // STOP
+          $("#stop").click(function(){
+            $("#box").stop();
+          });
+        
+          // FINISH
+          $("#finish").click(function(){
+            $("#box").finish();
+          });
+        
+          // CLEAR QUEUE
+          $("#clear").click(function(){
+            $("#box").clearQueue();
+          });
+        
+          // DEQUEUE
+          $("#dequeue").click(function(){
+            $("#box").dequeue();
+          });
+        
+        });
+        </script>
+
+
+</body>
+</html>
+
