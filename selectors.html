@@ -1,0 +1,46 @@
+<html>
+    <head>
+    <title>Selectors</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    </head>
+<body> 
+    <!-- basic--> 
+<p id="p1">Paragraph 1</p>
+<p class="c1">paragraph2</p>
+<p class="c1">paragraph3</p>
+
+<!--hierarcheal-->
+<div id="parent">
+<p>child paragraph</p>
+<span>child span</span>
+</div>
+<p id="next">Next paragraph</p>
+<p>sibling1</p>
+<p>sibling2</p>
+<!--attribute-->
+<input type="text" placeholder="hasini">
+<input type="text" value="hello">
+<input type="text" value="world">
+<input type="text" value="world123">
+<button id="btn">apply selectors </button>
+<script>
+$("p").css("color","blue");
+$("#p1").css("background","yellow");
+$(".c1").css("border","1px solid red")
+
+$("#parent p").css("font-size","40px"); //ekkada vunna apply avutadi
+$("#parent > span").css("color","green"); //direct child ki apply avutadi
+$("#next +p").css("color","orange"); //next sibling ki apply avutadi
+$("#next ~ p").css("border","1px solid red")//all next sibblings ki apply avutadi
+
+$("[type]").css("border","5px solid blue")//select all inputs with type attribute
+$("[value='hello']").css("background","yellow")//with vaue only hello ki apply avutadi
+$("[value^='world']").css("color","red")//value start with world
+$("[value$='123']").css("color","green")//value end with 123
+$("[value*='123']").css("font-weight","bold")//value loo ekkada 123 vunna apply avutadi
+
+
+
+</script>
+</body>
+</html>
