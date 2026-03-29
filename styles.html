@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Styles</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            
+                .highlight {
+                  background: rgb(214, 4, 92);
+                  font-size: 30px;
+                }
+            
+                .dark {
+                  background: yellow;
+                  color: white;
+                }
+              </style>
+    </head>
+    <body>
+        <button id="color">Change Color</button>
+        <button id="add">Add Highlight</button>
+        <button id="remove">Remove Highlight</button>
+        <button id="toggle">Toggle Theme</button>
+        <button id="check">Check Class</button>
+        
+        <p id="result">hasini</p>
+        <p id="result2"></p>
+<script>
+    $(document).ready(function(){
+        // css()-like ading iline styles
+        $("#color").click(function(){//used to change css attribute
+          $("#result").css("color","blue");
+        });
+        // addClass()-add the class properties to the element
+        $("#add").click(function(){
+          $("#result").addClass("highlight");
+        });
+        // removeClass()-removes the class properties from the element
+        $("#remove").click(function(){
+          $("#result").removeClass("highlight");
+        });
+        // toggleClass()-if class present it will remove,not present it will add
+        $("#toggle").click(function(){
+          $("#result").toggleClass("dark");
+        });
+        // hasClass()-checks whether the element has the specified class or not
+        $("#check").click(function(){
+          if($("#result").hasClass("dark")){
+            $("#result2").text("Dark mode ON");
+          } else {
+            $("#result2").text("Dark mode OFF");
+          }
+        });
+
+   
+    })
+
+</script>
+</body>
+</html>
