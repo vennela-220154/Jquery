@@ -1,0 +1,34 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Traversing</title>
+</head>
+<body>
+    <div id="grandparent">
+
+   <p>idi nene</p>
+    <div id="parent">
+        <p id="one">One</p>
+        <p>Two</p>
+        <p class="test">Three</p>
+      </div>
+    </div>
+      <button>Test</button>
+      <script>
+        $("button").click(function(){//one by one ani check chestoo cheyali
+        
+          $("#one").parent().css("color","red");// parent
+          $("#grandparent").children().css("border","3px solid blue"); // children
+          $("#one").next().css("background","yellow"); // next
+          $("p").first().css("font-size","50px");     // first
+          $("p").last().css("font-size","50px");          // last
+          $("p").eq(1).css("background","pink");      // eq
+          $("p").filter(".test").css("color","green"); // filter
+          $("p").not(".test").css("text-decoration","underline"); // not
+
+
+
+        })
+        </script>
+</body>
+</html>
