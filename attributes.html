@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Attributes</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+<!--image-->
+<img src="hasini.jpg" alt="its me" width="200px">
+<br><br><br>
+<button id="changeimage">change image </button>
+<button id="removewidth">remove width</button>
+<br><br><br>
+
+<!--checkbox-->
+<input type="checkbox" id="check">cse
+<br><br>
+<button id="enable">Enable</button>
+<button id="disable">Disable</button>
+<br><br>
+<!-- Input -->
+<input type="text" id="name" placeholder="Enter ur name">
+<button id="getValue">Get Value</button>
+<p id="output"></p>
+
+<script>
+$("#changeimage").click(function(){//change image source
+        $("img").attr("src","friends.jpg");
+      });
+$("#removewidth").click(function(){//removes the attribute
+        $("img").removeAttr("width");
+      });
+
+
+$("#enable").click(function(){//enables the checkbox
+        $("#check").prop("disabled",false);
+      });
+$("#disable").click(function(){
+        $("#check").prop("disabled", true);
+      });
+
+$("#getValue").click(function(){
+       // var value = $("#name").val();
+        $("#name").val("koushik");
+        var value = $("#name").val();
+        $("#output").text(value);
+      });
+</script>
+    
+</body>
+</html>
