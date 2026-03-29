@@ -1,0 +1,99 @@
+<html>
+<head>
+    <title>Events</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <!-- Mouse Events -->
+    <button id="btn">Click Me</button>
+    <p id="mouseMsg"></p>
+    <br><br>
+    <!-- Keyboard Events -->
+    <input type="text" id="keyboard" placeholder="Type something">
+    <p id="keyMsg"></p>   
+    <br><br>
+<!--form events-->
+<form id="form">
+  <input type="text" id="name" placeholder="Enter name"><br><br>
+  <select id="course">
+    <option>Java</option>
+    <option>Python</option>
+  </select><br><br>
+
+  <button type="submit">Submit</button>
+</form>
+
+<p id="formMsg"></p>
+ <script>
+    // MOUSE EVENTS
+$("#btn").click(function(){//click chesthe text change avvadi
+      $("#mouseMsg").text("Clicked");
+    });
+  
+$("#btn").dblclick(function(){//double click chesthe avutadi
+      $("#mouseMsg").text("Double Clicked");
+    });
+  
+$("#btn").mouseenter(function(){//when mouse comes inside element
+      $("#mouseMsg").text("Mouse Enter");
+    });
+  
+$("#btn").mouseleave(function(){//mouse element nunchi velli pothhe
+      $("#mouseMsg").text("Mouse Leave");
+    });
+  
+$("#btn").mousedown(function(){//when u press mouse down button
+      $("#mouseMsg").text("Mouse Down");
+    });
+  
+$("#btn").mouseup(function(){//when release mouse button
+      $("#mouseMsg").text("Mouse Up");
+    });
+  
+$("#btn").hover(function(){//mouse over the element+mouseenter+mouseleave
+      $("#mouseMsg").text("Hovering");
+    });
+//keyboard events
+$("#keyboard").keypress(function(){//typing letters
+    $("#keyMsg").text("Key Press");
+  });
+
+$("#keyboard").keydown(function(){//press starts
+    $("#keyMsg").text("Key Down");
+  });
+
+$("#keyboard").keyup(function(){//press finished
+    $("#keyMsg").text("Key Up");
+  });
+//form elements
+$("#name").focus(function(){//when input gets cursor
+    $("#formMsg").text("Input Focused");
+  });
+
+$("#name").blur(function(){//when input loses cursor
+    $("#formMsg").text("Input Lost Focus");
+  });
+
+$("#course").change(function(){//when value changed
+    $("#formMsg").text("Course Changed");
+  });
+
+$("#form").submit(function(e){//when form is submitted
+    e.preventDefault(); // stop reload
+    $("#formMsg").text("Form Submitted");
+  })
+// GENERAL EVENT METHODS
+  $("#btn").on("click", function(){
+    console.log("on() used");
+  });
+
+  // Example off()
+  $("#btn").dblclick(function(){
+    $("#btn").off("click"); // removes click event
+    $("#mouseMsg").text("Click Disabled using off()");
+  });
+
+
+ </script>   
+</body>
+</html>
